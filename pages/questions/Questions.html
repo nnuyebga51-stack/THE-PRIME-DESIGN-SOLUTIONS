@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Engineering Questions | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Questions.module.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">TPDS Q&A</h1>
+    <nav class="navLinks">
+      <a href="../home/Home.html">Home</a>
+      <a href="../library/Library.html">Library</a>
+      <a href="../tutorials/Tutorials.html">Tutorials</a>
+      <a href="../groups/Groups.html">Groups</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="pageHeader">
+    <h2>Ask Your Mechanical CAD Questions</h2>
+    <p>Post questions, get answers, and discuss engineering challenges</p>
+  </section>
+
+  <!-- POST QUESTION FORM -->
+  <section class="questionForm">
+    <h3>Post a New Question</h3>
+    <input type="text" id="questionTitle" placeholder="Question title" />
+    <textarea id="questionBody" placeholder="Describe your problem or question"></textarea>
+    <button id="postBtn">Post Question</button>
+    <p class="infoText">*Guests cannot post questions</p>
+  </section>
+
+  <!-- QUESTION LIST -->
+  <section class="questionList" id="questionList">
+    <!-- Questions will be appended here -->
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS | Q&A</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="../../scripts/session.js"></script>
+  <script src="../../scripts/roles.js"></script>
+  <script>
+    const user = getSession();
+
+    const questionList = document.getElementById("questionList");
+    const postBtn = document.getElementById("postBtn");
+    const questionTitle = document.getElementById("questionTitle");
+    const questionBody = document.getElementById("questionBody");
+
+    // Guest restriction
+    if(user?.role === "guest") {
+      postBtn.disabled = true;
+      postBtn.innerText = "Login to Post";
+    }
+
+    // Mock question storage (replace with database later)
+    let questions = [
+      {
+        title: "How to create a 4-bar linkage in CAD?",
+        body: "I need help designing a four-bar mechanism in SolidWorks.",
+        author: "user@tpds.com",
+        role: "user"
+      },
+      {
+        title: "Best practices for assembly constraints?",
+        body: "How to properly constrain parts in an assembly for smooth motion?",
+        author: "admin@tpds.com",
+        role: "admin"
+      }
+    ];
+
+    function renderQuestions() {
+      questionList.innerHTML = "";
+      questions.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.className = "questionCard";
+        div.innerHTML = `
+          <h3>${q.title}</h3>
+          <p>${q.body}</p>
+          <p class="author">Posted by: ${q.author} (${q.role})</p>
+          <div class="actions">
+            ${user?.role === "admin" ? `<button onclick="deleteQuestion(${index})">Delete</button>` : ""}
+          </div>
+        `;
+        questionList.appendChild(div);
+      });
+    }
+
+    function deleteQuestion(index) {
+      questions.splice(index, 1);
+      renderQuestions();
+    }
+
+    postBtn.addEventListener("click", () => {
+      if(!questionTitle.value || !questionBody.value) return alert("Fill in both fields!");
+      questions.push({
+        title: questionTitle.value,
+        body: questionBody.value,
+        author: user?.name || "Guest",
+        role: user?.role || "guest"
+      });
+      questionTitle.value = "";
+      questionBody.value = "";
+      renderQuestions();
+    });
+
+    renderQuestions();
+  </script>
+
+</body>
+</html>

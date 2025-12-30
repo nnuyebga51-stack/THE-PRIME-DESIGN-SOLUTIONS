@@ -1,0 +1,158 @@
+/* ===== GENERAL ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: #0f172a;
+}
+
+.logo {
+  color: #20c997;
+  font-size: 18px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.navLinks a:hover {
+  color: #ffffff;
+}
+
+.logout {
+  color: #f87171;
+}
+
+/* ===== HEADER ===== */
+.pageHeader {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.pageHeader h2 {
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.pageHeader p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* ===== CONTROLS ===== */
+.libraryControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px 30px;
+  gap: 15px;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.uploadBtn {
+  padding: 12px 18px;
+  background-color: #0b5ed7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.uploadBtn:hover {
+  background-color: #084298;
+}
+
+/* ===== CAD GRID ===== */
+.cadGrid {
+  padding: 0 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+/* ===== CAD CARD ===== */
+.cadCard {
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 20px;
+  text-align: center;
+}
+
+.cadCard img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.cadCard h3 {
+  font-size: 16px;
+  color: #0b5ed7;
+  margin-bottom: 5px;
+}
+
+.cadCard p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* ===== ACTIONS ===== */
+.cardActions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.viewBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #0b5ed7;
+  background: transparent;
+  color: #0b5ed7;
+  cursor: pointer;
+}
+
+.downloadBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #20c997;
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #cbd5e1;
+  font-size: 13px;
+}

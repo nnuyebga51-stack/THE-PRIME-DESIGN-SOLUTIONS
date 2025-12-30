@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Activity Log | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Activity.module.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">TPDS Admin</h1>
+    <nav class="navLinks">
+      <a href="../dashboard/AdminDashboard.html">Dashboard</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="pageHeader">
+    <h2>User Activity Log</h2>
+    <p>All user interactions, uploads, downloads, and submissions</p>
+  </section>
+
+  <!-- ACTIVITY TABLE -->
+  <section class="activityTable">
+    <table>
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>User</th>
+          <th>Role</th>
+          <th>Action</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody id="activityBody">
+        <!-- Dynamic rows -->
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS | Admin Activity Tracking</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="../../scripts/session.js"></script>
+  <script src="../../scripts/roles.js"></script>
+  <script src="../../scripts/activity.js"></script>
+  <script>
+    adminOnly(); // Ensure only admin can access
+    renderActivity();
+  </script>
+
+</body>
+</html>

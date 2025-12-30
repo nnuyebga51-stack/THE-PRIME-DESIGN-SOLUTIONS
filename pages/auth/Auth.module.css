@@ -1,0 +1,95 @@
+/* ===== AUTH GENERAL ===== */
+.authBody {
+  height: 100vh;
+  background: linear-gradient(135deg, #0b5ed7, #0f172a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== CONTAINER ===== */
+.authContainer {
+  background-color: #ffffff;
+  width: 380px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* ===== BRANDING ===== */
+.brandTitle {
+  color: #0b5ed7;
+  margin-bottom: 5px;
+}
+
+.brandSubtitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* ===== FORM ===== */
+.authForm h2 {
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.authForm label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  margin-top: 12px;
+  color: #333;
+}
+
+.authForm input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.authForm input:focus {
+  border-color: #0b5ed7;
+}
+
+/* ===== BUTTONS ===== */
+.primaryBtn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #0b5ed7;
+  border: none;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  background-color: #084298;
+}
+
+.authActions {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.linkBtn {
+  text-decoration: none;
+  color: #0b5ed7;
+  font-size: 14px;
+}
+
+.guestBtn {
+  text-decoration: none;
+  font-size: 14px;
+  color: #20c997;
+  font-weight: bold;
+}
