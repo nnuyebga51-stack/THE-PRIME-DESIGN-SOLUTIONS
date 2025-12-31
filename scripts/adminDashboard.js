@@ -1,21 +1,20 @@
-const session = getSession();
+import { get } from "./api.js";
 
-if (!session || session.role !== "admin") {
-  alert("Admin access only");
-  window.location.href = "../home/Home.html";
+async function loadLogs() {
+  const logs = await get("/admin/logs", getToken());
+  const table = document.getElementById("logTable");
+
+  logs.forEach(log => {
+    table.innerHTML += `
+      <tr>
+        <td>${log.user}</td>
+        <td>${log.role}</td>
+        <td>${log.action}</td>
+        <td>${log.page}</td>
+        <td>${new Date(log.timestamp).toLocaleString()}</td>
+      </tr>
+    `;
+  });
 }
 
-const table = document.getElementById("logTable");
-const logs = JSON.parse(localStorage.getItem("tpds_activity_logs")) || [];
-
-logs.reverse().forEach(log => {
-  table.innerHTML += `
-    <tr>
-      <td>${log.user}</td>
-      <td>${log.role}</td>
-      <td>${log.action}</td>
-      <td>${log.page}</td>
-      <td>${log.timestamp}</td>
-    </tr>
-  `;
-});
+loadLogs();

@@ -2,40 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Engineering Groups | TPDS</title>
-  <link rel="stylesheet" href="../../styles/global.css" />
+  <title>Engineering Groups | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Groups.module.css" />
 </head>
 
 <body>
 
-<header class="navbar">
-  <h1 class="logo">Engineering Groups</h1>
-  <nav class="navLinks">
-    <a href="../home/Home.html">Home</a>
-    <a href="../library/Library.html">Library</a>
-    <a href="../challenges/Challenges.html">Challenges</a>
-  </nav>
-</header>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">TPDS Groups</h1>
+    <nav class="navLinks">
+      <a href="../home/Home.html">Home</a>
+      <a href="../dashboard/UserDashboard.html">Dashboard</a>
+      <a href="../library/Library.html">Library</a>
+      <a href="../challenges/Challenges.html">Challenges</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </header>
 
-<section class="features">
-  <h3>Engineering Collaboration Groups</h3>
+  <!-- PAGE HEADER -->
+  <section class="pageHeader">
+    <h2>Engineering Collaboration Groups</h2>
+    <p>Join discussions, share ideas, and collaborate on CAD designs</p>
+  </section>
 
-  <!-- Admin create group -->
-  <div id="adminGroup"></div>
+  <!-- ADMIN CONTROLS (ADMIN ONLY LATER) -->
+  <section class="adminControls">
+    <button class="createBtn">Create New Group</button>
+  </section>
 
-  <!-- Group List -->
-  <div class="featureGrid" id="groupList"></div>
+  <!-- GROUPS GRID -->
+  <section class="groupGrid">
 
-  <!-- Chat Area -->
-  <div id="chatBox"></div>
-</section>
+    <!-- GROUP CARD -->
+    <div class="groupCard">
+      <h3>Mechanism Design Group</h3>
+      <p class="category">Kinematics & Dynamics</p>
+      <p class="status open">Status: Open</p>
 
-<footer class="footer">
-  <p>© 2025 THE PRIME DESIGN SOLUTIONS</p>
-</footer>
+      <p class="description">
+        Discussion on four-bar mechanisms, cams, linkages,
+        and motion optimization.
+      </p>
 
-<script src="../../scripts/session.js"></script>
-<script src="../../scripts/groups.js"></script>
-<script src="../../scripts/groupChat.js"></script>
+      <div class="actions">
+        <button class="joinBtn">Join Group</button>
+        <button class="chatBtn">Open Chat</button>
+      </div>
+    </div>
+
+    <div class="groupCard">
+      <h3>Power Transmission Systems</h3>
+      <p class="category">Gears & Drives</p>
+      <p class="status closed">Status: Closed</p>
+
+      <p class="description">
+        Gear trains, worm gears, belt drives, and efficiency analysis.
+      </p>
+
+      <div class="actions">
+        <button class="joinBtn">Join Group</button>
+        <button class="chatBtn">Chat Closed</button>
+      </div>
+    </div>
+
+    <div class="groupCard">
+      <h3>Hydraulics & Pneumatics</h3>
+      <p class="category">Fluid Power</p>
+      <p class="status open">Status: Open</p>
+
+      <p class="description">
+        Design and simulation of hydraulic cylinders,
+        valves, and pneumatic systems.
+      </p>
+
+      <div class="actions">
+        <button class="joinBtn">Join Group</button>
+        <button class="chatBtn">Open Chat</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS | Engineering Groups</p>
+  </footer>
+
+  <!-- ROLE & CHAT CONTROL -->
+  <script src="../../scripts/session.js"></script>
+  <script src="../../scripts/roles.js"></script>
+  <script>
+    const user = getSession();
+
+    // Guests cannot join or chat
+    if (user?.role === "guest") {
+      document.querySelectorAll(".joinBtn, .chatBtn")
+        .forEach(btn => btn.disabled = true);
+    }
+
+    // Disable chat buttons for closed groups
+    document.querySelectorAll(".groupCard").forEach(card => {
+      const status = card.querySelector(".status");
+      if (status.classList.contains("closed")) {
+        card.querySelector(".chatBtn").disabled = true;
+      }
+    });
+  </script>
+
 </body>
 </html>

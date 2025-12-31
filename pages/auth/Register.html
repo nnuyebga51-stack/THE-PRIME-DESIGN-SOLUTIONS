@@ -36,19 +36,6 @@
     </div>
 
   </div>
-  {async function registerUser(name, email, password) {
-  try {
-    const data = await post("/auth/register", { name, email, password });
-    if (data.msg) return alert(data.msg);
-
-    alert("Account created successfully!");
-    window.location.href = "Login.html";
-  } catch (err) {
-    console.error(err);
-    alert("Registration failed");
-  }}
-}
-
 
 </body>
 </html>

@@ -104,14 +104,10 @@
         .forEach(btn => btn.innerText = "Login Required");
     }
 
-    // User without subscription - REPLACED LOGIC
+    // User without subscription
     if (user?.role === "user" && !user?.subscribed) {
-      document.querySelectorAll(".premium .viewBtn").forEach(btn => {
-        btn.innerText = "Subscribe to Access";
-        btn.onclick = () => {
-          window.location.href = "../subscription/Subscribe.html";
-        };
-      });
+      document.querySelectorAll(".premium .viewBtn")
+        .forEach(btn => btn.disabled = true);
     }
   </script>
 

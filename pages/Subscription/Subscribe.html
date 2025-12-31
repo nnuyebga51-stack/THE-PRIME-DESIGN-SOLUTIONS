@@ -50,6 +50,16 @@
 
   <script src="../../scripts/session.js"></script>
   <script src="../../scripts/subscription.js"></script>
+async function subscribeUser() {
+  const token = localStorage.getItem("tpds_token");
+
+  const res = await post("/user/subscribe", {}, token);
+  if (res.msg) alert(res.msg);
+  else {
+    alert("Subscription activated!");
+    window.location.href = "../tutorials/Tutorials.html";
+  }
+}
 
 </body>
 </html>

@@ -1,15 +1,14 @@
 // Save logged-in user
 function setSession(user) {
-  localStorage.setItem("tpds_session", JSON.stringify(user));
+  localStorage.setItem("tpds_user", JSON.stringify(user));
 }
 
-// Get current session
+// Get logged-in user
 function getSession() {
-  return JSON.parse(localStorage.getItem("tpds_session"));
+  return JSON.parse(localStorage.getItem("tpds_user"));
 }
 
-// Clear session
-function logout() {
-  localStorage.removeItem("tpds_session");
-  window.location.href = "../../index.html";
+// Clear session (logout)
+function clearSession() {
+  localStorage.removeItem("tpds_user");
 }

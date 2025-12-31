@@ -1,70 +1,32 @@
-const challengeList = document.getElementById("challengeList");
-const adminSection = document.getElementById("adminChallenge");
-const session = getSession();
+import { get, post } from "./api.js";
 
-let challenges = JSON.parse(localStorage.getItem("tpds_challenges")) || [];
+async function loadChallenges() {
+  const challenges = await get("/challenge", getToken());
+  const container = document.getElementById("challengeList");
+  const user = getUser();
 
-/* ADMIN CREATE */
-if (session?.role === "admin") {
-  adminSection.innerHTML = `
-    <div class="featureCard">
-      <h4>Create New Challenge</h4>
-      <input id="chTitle" placeholder="Challenge Title" />
-      <textarea id="chDesc" placeholder="Description"></textarea>
-      <input type="date" id="chDeadline" />
-      <button class="btn primary" onclick="createChallenge()">Create</button>
-    </div>
-  `;
-}
-
-function createChallenge() {
-  const title = chTitle.value;
-  const description = chDesc.value;
-  const deadline = chDeadline.value;
-
-  if (!title || !deadline) {
-    alert("All fields required");
-    return;
-  }
-
-  challenges.push({
-    id: "ch_" + Date.now(),
-    title,
-    description,
-    deadline,
-    createdBy: session.email,
-    submissions: []
-  });
-
-  localStorage.setItem("tpds_challenges", JSON.stringify(challenges));
-  location.reload();
-}
-
-/* RENDER */
-function renderChallenges() {
-  challengeList.innerHTML = "";
+  container.innerHTML = "";
 
   challenges.forEach(ch => {
-    challengeList.innerHTML += `
+    container.innerHTML += `
       <div class="featureCard">
         <h4>${ch.title}</h4>
         <p>${ch.description}</p>
-        <p><strong>Deadline:</strong> ${ch.deadline}</p>
 
         ${
-          session?.role === "admin"
-            ? `<button class="btn ghost" onclick="viewSubmissions('${ch.id}')">View Submissions</button>`
-            : ""
-        }
-
-        ${
-          session?.role === "user"
-            ? `<button class="btn primary" onclick="joinChallenge('${ch.id}')">Participate</button>`
-            : ""
+          user.role === "admin"
+            ? `<button onclick="viewSubmissions('${ch._id}')">View Submissions</button>`
+            : `<button onclick="submitChallenge('${ch._id}')">Participate</button>`
         }
       </div>
     `;
   });
 }
 
-renderChallenges();
+async function submitChallenge(id) {
+  const fileName = prompt("Enter CAD file name:");
+  await post(`/challenge/${id}/submit`, { fileName }, getToken());
+  alert("Submitted successfully!");
+}
+
+loadChallenges();

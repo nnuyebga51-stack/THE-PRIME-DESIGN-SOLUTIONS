@@ -7,36 +7,13 @@
 </head>
 
 <body class="authBody">
-    <script>
-{async function loginUser(email, password) {
-  try {
-    const data = await post("/auth/login", { email, password });
-    if (data.msg) return alert(data.msg);
-
-    localStorage.setItem("tpds_session", JSON.stringify(data.user));
-    localStorage.setItem("tpds_token", data.token);
-
-    if (data.user.role === "admin") {
-      window.location.href = "../admin/AdminDashboard.html";
-    } else {
-      window.location.href = "../home/Home.html";
-    }
-  } catch (err) {
-    console.error(err);
-    alert("Login failed");
-  }
-}
-
-}
-</script>
-
 
   <div class="authContainer">
 
     <h1 class="brandTitle">THE PRIME DESIGN SOLUTIONS</h1>
     <p class="brandSubtitle">Engineering • CAD • Mechanical Design</p>
 
-        <form class="authForm" onsubmit="handleLogin(event)">
+    <form class="authForm" onsubmit="handleLogin(event)">
 
       <h2>Login to Your Account</h2>
 
@@ -48,18 +25,27 @@
 
       <button class="primaryBtn" type="submit">Login</button>
     </form>
+    <a href="#" class="guestBtn" onclick="loginGuest()">Login as Guest</a>
+
 
     <div class="authActions">
       <a href="Register.html" class="linkBtn">Create Account</a>
       <a href="../home/Home.html" class="guestBtn">Login as Guest</a>
-      <a href="#" class="guestBtn" onclick="loginGuest()">Login as Guest</a>
-
     </div>
 
   </div>
-  <script src="../../scripts/session.js"></script>
+<script src="../../scripts/session.js"></script>
 <script src="../../scripts/auth.js"></script>
+<script>
+function handleLogin(event) {
+  event.preventDefault();
 
-<script src="scripts/api.js"></script>
+  const email = document.querySelector('input[type="email"]').value;
+  const password = document.querySelector('input[type="password"]').value;
+
+  loginUser(email, password);
+}
+</script>
+
 </body>
 </html>

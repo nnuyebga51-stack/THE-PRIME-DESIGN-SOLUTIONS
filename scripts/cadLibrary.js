@@ -48,3 +48,30 @@ searchInput.addEventListener("input", () => {
 });
 
 renderCAD(cadFiles);
+import { get } from "./api.js";
+
+async function loadCAD() {
+  const files = await get("/cad", getToken());
+  const container = document.getElementById("cadList");
+  const user = getUser();
+
+  container.innerHTML = "";
+
+  files.forEach(f => {
+    const locked = f.premium && !user?.subscribed && user?.role !== "admin";
+
+    container.innerHTML += `
+      <div class="featureCard">
+        <h4>${f.title}</h4>
+        <p>By: ${f.author.email}</p>
+        <button class="btn ${locked ? "secondary" : "primary"}"
+          ${locked ? "disabled" : ""}
+        >
+          ${locked ? "Premium Only" : "Download"}
+        </button>
+      </div>
+    `;
+  });
+}
+
+loadCAD();

@@ -1,0 +1,18 @@
+async function loginUser(email, password) {
+  try {
+    const data = await post("/auth/login", { email, password });
+    if (data.msg) return alert(data.msg);
+
+    localStorage.setItem("tpds_session", JSON.stringify(data.user));
+    localStorage.setItem("tpds_token", data.token);
+
+    if (data.user.role === "admin") {
+      window.location.href = "../admin/AdminDashboard.html";
+    } else {
+      window.location.href = "../home/Home.html";
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Login failed");
+  }
+}

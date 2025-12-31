@@ -2,39 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CAD Library | TPDS</title>
-  <link rel="stylesheet" href="../../styles/global.css" />
+  <title>CAD Library | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Library.module.css" />
 </head>
 
 <body>
 
-<header class="navbar">
-  <h1 class="logo">CAD Library</h1>
-  <nav class="navLinks">
-    <a href="../home/Home.html">Home</a>
-    <a href="../tutorials/Tutorials.html">Tutorials</a>
-    <a href="../subscription/Subscribe.html">Subscribe</a>
-  </nav>
-</header>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">TPDS CAD Library</h1>
+    <nav class="navLinks">
+      <a href="../home/Home.html">Home</a>
+      <a href="../dashboard/UserDashboard.html">Dashboard</a>
+      <a href="../challenges/Challenges.html">Challenges</a>
+      <a href="../groups/Groups.html">Groups</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </header>
 
-<section class="features">
-  <h3>Mechanical CAD Design Library</h3>
+  <!-- PAGE HEADER -->
+  <section class="pageHeader">
+    <h2>Mechanical CAD Design Library</h2>
+    <p>Browse, upload, and download professional mechanical CAD designs</p>
+  </section>
 
-  <input type="text" id="searchInput" placeholder="Search CAD design..." />
+  <!-- SEARCH & UPLOAD -->
+  <section class="libraryControls">
+    <input
+      type="text"
+      placeholder="Search CAD design by name, type, or category..."
+      class="searchInput"
+    />
 
-  <!-- Upload (User/Admin only) -->
-  <div id="uploadSection"></div>
+    <!-- Visible only to User/Admin later -->
+    <button class="uploadBtn">Upload CAD File</button>
+  </section>
 
-  <!-- CAD Files -->
-  <div class="featureGrid" id="cadList"></div>
-</section>
+  <!-- CAD GRID -->
+  <section class="cadGrid">
 
-<footer class="footer">
-  <p>© 2025 THE PRIME DESIGN SOLUTIONS</p>
-</footer>
+    <!-- CAD CARD -->
+    <div class="cadCard">
+      <img src="../../assets/images/cad-placeholder.png" alt="CAD Preview" />
+      <h3>Spur Gear Assembly</h3>
+      <p>Mechanical Transmission</p>
+      <div class="cardActions">
+        <button class="viewBtn">Preview</button>
+        <button class="downloadBtn">Download</button>
+      </div>
+    </div>
 
-<script src="../../scripts/session.js"></script>
-<script src="../../scripts/upload.js"></script>
-<script src="../../scripts/cadLibrary.js"></script>
+    <div class="cadCard">
+      <img src="../../assets/images/cad-placeholder.png" alt="CAD Preview" />
+      <h3>Hydraulic Cylinder</h3>
+      <p>Fluid Power Systems</p>
+      <div class="cardActions">
+        <button class="viewBtn">Preview</button>
+        <button class="downloadBtn">Download</button>
+      </div>
+    </div>
+
+    <div class="cadCard">
+      <img src="../../assets/images/cad-placeholder.png" alt="CAD Preview" />
+      <h3>Four-Bar Mechanism</h3>
+      <p>Kinematics & Mechanisms</p>
+      <div class="cardActions">
+        <button class="viewBtn">Preview</button>
+        <button class="downloadBtn">Download</button>
+      </div>
+    </div>
+
+    <div class="cadCard">
+      <img src="../../assets/images/cad-placeholder.png" alt="CAD Preview" />
+      <h3>Worm Gear Drive</h3>
+      <p>Power Transmission</p>
+      <div class="cardActions">
+        <button class="viewBtn">Preview</button>
+        <button class="downloadBtn">Download</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS | CAD Library</p>
+  </footer>
+
 </body>
 </html>
