@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Business | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Business.module.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">TPDS Business</h1>
+    <nav class="navLinks">
+      <a href="../home/Home.html">Home</a>
+      <a href="../library/Library.html">Library</a>
+      <a href="../tutorials/Tutorials.html">Tutorials</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="pageHeader">
+    <h2>Available Mechanical Designs & Projects</h2>
+    <p>Explore professional CAD designs and place orders or requests</p>
+  </section>
+
+  <!-- ADMIN UPLOAD (ADMIN ONLY) -->
+  <section class="adminPanel">
+    <h3>Admin Business Controls</h3>
+    <button class="uploadBtn">Upload New Product / Project</button>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <section class="productGrid">
+
+    <!-- PRODUCT CARD -->
+    <div class="productCard">
+      <img src="../../assets/images/product1.png" alt="Spur Gear Assembly" />
+      <h3>Spur Gear Assembly</h3>
+      <p class="category">Transmission Systems</p>
+      <p class="description">
+        Professional CAD model of spur gear assembly with full dimensions
+        and assembly constraints.
+      </p>
+      <div class="actions">
+        <button class="orderBtn">Place Order</button>
+        <button class="detailsBtn">View Details</button>
+      </div>
+    </div>
+
+    <div class="productCard">
+      <img src="../../assets/images/product2.png" alt="Hydraulic Cylinder" />
+      <h3>Hydraulic Cylinder</h3>
+      <p class="category">Fluid Power</p>
+      <p class="description">
+        Fully parametric hydraulic cylinder CAD design for industrial projects.
+      </p>
+      <div class="actions">
+        <button class="orderBtn">Place Order</button>
+        <button class="detailsBtn">View Details</button>
+      </div>
+    </div>
+
+    <div class="productCard">
+      <img src="../../assets/images/product3.png" alt="Four-Bar Mechanism" />
+      <h3>Four-Bar Mechanism</h3>
+      <p class="category">Kinematics & Mechanisms</p>
+      <p class="description">
+        Optimized four-bar linkage design with motion analysis included.
+      </p>
+      <div class="actions">
+        <button class="orderBtn">Place Order</button>
+        <button class="detailsBtn">View Details</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS | Business & CAD Projects</p>
+  </footer>
+
+  <!-- ROLE CONTROL -->
+  <script src="../../scripts/session.js"></script>
+  <script src="../../scripts/roles.js"></script>
+  <script>
+    const user = getSession();
+
+    // Hide admin panel for non-admins
+    if (user?.role !== "admin") {
+      document.querySelector(".adminPanel").style.display = "none";
+    }
+
+    // Guest restrictions (cannot place orders)
+    if (user?.role === "guest") {
+      document.querySelectorAll(".orderBtn")
+        .forEach(btn => {
+          btn.disabled = true;
+          btn.innerText = "Login to Order";
+        });
+    }
+  </script>
+
+</body>
+</html>

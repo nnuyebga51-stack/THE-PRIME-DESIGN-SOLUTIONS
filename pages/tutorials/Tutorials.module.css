@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background-color: #0f172a;
+}
+
+.logo {
+  color: #20c997;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.logout {
+  color: #f87171;
+}
+
+/* ===== HEADER ===== */
+.pageHeader {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.pageHeader h2 {
+  color: #0f172a;
+}
+
+.pageHeader p {
+  color: #555;
+}
+
+/* ===== ADMIN ===== */
+.adminPanel {
+  margin: 0 40px 20px;
+  padding: 20px;
+  background-color: #e2e8f0;
+  border-radius: 12px;
+}
+
+.uploadBtn {
+  background-color: #0b5ed7;
+  border: none;
+  padding: 10px 16px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== GRID ===== */
+.tutorialGrid {
+  padding: 0 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* ===== CARD ===== */
+.tutorialCard {
+  background-color: white;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.tutorialCard h3 {
+  color: #0b5ed7;
+}
+
+.category {
+  font-size: 13px;
+  color: #20c997;
+  font-weight: bold;
+}
+
+/* ===== TAGS ===== */
+.tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+.freeTag {
+  background-color: #22c55e;
+  color: white;
+}
+
+.premiumTag {
+  background-color: #f59e0b;
+  color: white;
+}
+
+/* ===== BUTTONS ===== */
+.viewBtn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #0b5ed7;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.locked {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.viewBtn:disabled {
+  opacity: 0.6;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #cbd5e1;
+  font-size: 13px;
+}

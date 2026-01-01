@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CAD Tutorials | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Tutorials.module.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">TPDS Tutorials</h1>
+    <nav class="navLinks">
+      <a href="../home/Home.html">Home</a>
+      <a href="../library/Library.html">Library</a>
+      <a href="../groups/Groups.html">Groups</a>
+      <a href="../questions/Questions.html">Questions</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="pageHeader">
+    <h2>Step-by-Step CAD Tutorials</h2>
+    <p>Learn mechanical design using professional CAD workflows</p>
+  </section>
+
+  <!-- ADMIN UPLOAD (ADMIN ONLY) -->
+  <section class="adminPanel">
+    <h3>Admin Tutorial Controls</h3>
+    <button class="uploadBtn">Upload New Tutorial</button>
+  </section>
+
+  <!-- TUTORIAL GRID -->
+  <section class="tutorialGrid">
+
+    <!-- FREE TUTORIAL -->
+    <div class="tutorialCard free">
+      <span class="tag freeTag">FREE</span>
+      <h3>Introduction to CAD Interface</h3>
+      <p class="category">Basics</p>
+
+      <ul>
+        <li>Understanding toolbars</li>
+        <li>Sketch environment</li>
+        <li>Units & dimensions</li>
+      </ul>
+
+      <button class="viewBtn">Start Tutorial</button>
+    </div>
+
+    <!-- PAID TUTORIAL -->
+    <div class="tutorialCard premium">
+      <span class="tag premiumTag">PREMIUM</span>
+      <h3>3D Mechanical Part Modeling</h3>
+      <p class="category">Solid Modeling</p>
+
+      <ul>
+        <li>Parametric sketches</li>
+        <li>Extrude & revolve</li>
+        <li>Design intent</li>
+      </ul>
+
+      <button class="viewBtn locked">Subscribe to Access</button>
+    </div>
+
+    <!-- ADVANCED -->
+    <div class="tutorialCard premium">
+      <span class="tag premiumTag">PREMIUM</span>
+      <h3>Assembly Design & Constraints</h3>
+      <p class="category">Assemblies</p>
+
+      <ul>
+        <li>Mate constraints</li>
+        <li>Motion checks</li>
+        <li>Interference analysis</li>
+      </ul>
+
+      <button class="viewBtn locked">Subscribe to Access</button>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS | CAD Learning Platform</p>
+  </footer>
+
+  <!-- ACCESS CONTROL -->
+  <script src="../../scripts/session.js"></script>
+  <script src="../../scripts/roles.js"></script>
+  <script>
+    const user = getSession();
+
+    // Hide admin panel for non-admins
+    if (user?.role !== "admin") {
+      document.querySelector(".adminPanel").style.display = "none";
+    }
+
+    // Guest restrictions
+    if (user?.role === "guest") {
+      document.querySelectorAll(".premium .viewBtn")
+        .forEach(btn => btn.innerText = "Login Required");
+    }
+
+    // User without subscription
+    if (user?.role === "user" && !user?.subscribed) {
+      document.querySelectorAll(".premium .viewBtn")
+        .forEach(btn => btn.disabled = true);
+    }
+  </script>
+
+</body>
+</html>

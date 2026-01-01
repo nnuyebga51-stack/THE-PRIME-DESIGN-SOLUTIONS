@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 40px;
+  background-color: #0f172a;
+}
+
+.logo {
+  color: #20c997;
+}
+
+.navLinks a {
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.logout {
+  color: #f87171;
+}
+
+/* ===== HEADER ===== */
+.pageHeader {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.pageHeader h2 {
+  color: #0f172a;
+}
+
+.pageHeader p {
+  color: #555;
+}
+
+/* ===== TABLE ===== */
+.activityTable {
+  margin: 0 40px 60px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  background-color: #0b5ed7;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #cbd5e1;
+  font-size: 13px;
+}

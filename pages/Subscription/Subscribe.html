@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Subscribe | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="../../styles/global.css" />
+</head>
+
+<body>
+
+  <header class="navbar">
+    <h1 class="logo">TPDS Subscription</h1>
+    <nav class="navLinks">
+      <a href="../home/Home.html">Home</a>
+      <a href="../tutorials/Tutorials.html">Tutorials</a>
+      <a href="../library/Library.html">Library</a>
+    </nav>
+  </header>
+
+  <section class="features">
+    <h3>Upgrade to Premium</h3>
+    <p>Unlock full CAD tutorials, advanced designs, and competitions.</p>
+
+    <div class="featureGrid">
+
+      <div class="featureCard">
+        <h4>FREE PLAN</h4>
+        <p>✔ Basic tutorials<br>✔ Limited downloads<br>❌ Challenges</p>
+        <p><strong>$0 / Month</strong></p>
+      </div>
+
+      <div class="featureCard">
+        <h4>PREMIUM PLAN</h4>
+        <p>
+          ✔ All tutorials<br>
+          ✔ Unlimited CAD downloads<br>
+          ✔ Design challenges<br>
+          ✔ Priority support
+        </p>
+        <p><strong>$10 / Month</strong></p>
+        <button class="btn primary" onclick="subscribeUser()">Subscribe</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS</p>
+  </footer>
+
+  <script src="../../scripts/session.js"></script>
+  <script src="../../scripts/subscription.js"></script>
+async function subscribeUser() {
+  const token = localStorage.getItem("tpds_token");
+
+  const res = await post("/user/subscribe", {}, token);
+  if (res.msg) alert(res.msg);
+  else {
+    alert("Subscription activated!");
+    window.location.href = "../tutorials/Tutorials.html";
+  }
+}
+
+</body>
+</html>

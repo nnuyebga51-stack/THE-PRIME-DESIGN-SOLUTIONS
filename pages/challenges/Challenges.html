@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Design Challenges | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Challenges.module.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <h1 class="logo">TPDS Challenges</h1>
+    <nav class="navLinks">
+      <a href="../home/Home.html">Home</a>
+      <a href="../dashboard/UserDashboard.html">Dashboard</a>
+      <a href="../library/Library.html">Library</a>
+      <a href="../groups/Groups.html">Groups</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="pageHeader">
+    <h2>Engineering Design Challenges</h2>
+    <p>Test your CAD skills through mechanical design competitions</p>
+  </section>
+
+  <!-- ADMIN ACTION (VISIBLE TO ADMIN ONLY LATER) -->
+  <section class="adminControls">
+    <button class="createBtn">Create New Challenge</button>
+  </section>
+
+  <!-- CHALLENGE LIST -->
+  <section class="challengeGrid">
+
+    <!-- CHALLENGE CARD -->
+    <div class="challengeCard">
+      <h3>Four-Bar Mechanism Optimization</h3>
+      <p class="category">Mechanisms & Kinematics</p>
+      <p class="description">
+        Design and optimize a four-bar mechanism for smooth motion
+        and minimal acceleration.
+      </p>
+
+      <ul class="details">
+        <li><strong>Deadline:</strong> 30 Sept 2025</li>
+        <li><strong>Difficulty:</strong> Intermediate</li>
+        <li><strong>Submissions:</strong> Open</li>
+      </ul>
+
+      <div class="actions">
+        <button class="joinBtn">Join Challenge</button>
+        <button class="uploadBtn">Upload CAD</button>
+      </div>
+    </div>
+
+    <div class="challengeCard">
+      <h3>Gearbox Design for Conveyor System</h3>
+      <p class="category">Power Transmission</p>
+      <p class="description">
+        Design a compact gearbox to transmit power efficiently
+        in a conveyor application.
+      </p>
+
+      <ul class="details">
+        <li><strong>Deadline:</strong> 15 Oct 2025</li>
+        <li><strong>Difficulty:</strong> Advanced</li>
+        <li><strong>Submissions:</strong> Open</li>
+      </ul>
+
+      <div class="actions">
+        <button class="joinBtn">Join Challenge</button>
+        <button class="uploadBtn">Upload CAD</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 THE PRIME DESIGN SOLUTIONS | Design Challenges</p>
+  </footer>
+
+  <!-- ROLE CONTROL (LOGIC READY) -->
+  <script src="../../scripts/session.js"></script>
+  <script src="../../scripts/roles.js"></script>
+  <script>
+    // Guests cannot participate
+    if (getSession()?.role === "guest") {
+      document.querySelectorAll(".joinBtn, .uploadBtn")
+        .forEach(btn => btn.disabled = true);
+    }
+  </script>
+
+</body>
+</html>

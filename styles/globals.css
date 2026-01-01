@@ -1,0 +1,228 @@
+/* =====================================================
+   THE PRIME DESIGN SOLUTIONS – GLOBAL STYLES
+   Engineering | CAD | Professional Design
+   ===================================================== */
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --primary-color: #0b5ed7;      /* Engineering Blue */
+  --secondary-color: #20c997;    /* Teal Accent */
+  --dark-color: #0f172a;         /* Dark Navy */
+  --light-color: #f8fafc;        /* Light Background */
+  --text-color: #1f2937;         /* Main Text */
+  --muted-text: #6b7280;         /* Secondary Text */
+  --danger-color: #ef4444;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ===== LINKS ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  opacity: 0.9;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: var(--dark-color);
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+.navLinks {
+  display: flex;
+  gap: 22px;
+}
+
+.navLinks a {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.navLinks a:hover {
+  color: #ffffff;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: linear-gradient(
+      rgba(15, 23, 42, 0.85),
+      rgba(15, 23, 42, 0.85)
+    ),
+    url("../assets/images/engineering-bg.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+}
+
+.heroText {
+  max-width: 800px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 16px;
+  color: #e5e7eb;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 8px;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn.secondary {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+}
+
+.btn.ghost {
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== FEATURES ===== */
+.features {
+  padding: 60px 40px;
+  background-color: white;
+  text-align: center;
+}
+
+.features h3 {
+  font-size: 26px;
+  margin-bottom: 40px;
+  color: var(--dark-color);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.featureCard {
+  background-color: var(--light-color);
+  padding: 30px 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.featureCard h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.featureCard p {
+  font-size: 14px;
+  color: var(--muted-text);
+}
+
+/* ===== CTA ===== */
+.cta {
+  padding: 60px 20px;
+  background-color: var(--dark-color);
+  color: white;
+  text-align: center;
+}
+
+.cta h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--dark-color);
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+/* ===== FORMS ===== */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* ===== UTILITIES ===== */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .features {
+    padding: 40px 20px;
+  }
+}

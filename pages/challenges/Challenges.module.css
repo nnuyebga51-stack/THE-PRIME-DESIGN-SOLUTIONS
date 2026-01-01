@@ -1,0 +1,156 @@
+/* ===== GENERAL ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8fafc;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background-color: #0f172a;
+}
+
+.logo {
+  color: #20c997;
+  font-size: 18px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+.navLinks a:hover {
+  color: #ffffff;
+}
+
+.logout {
+  color: #f87171;
+}
+
+/* ===== HEADER ===== */
+.pageHeader {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.pageHeader h2 {
+  color: #0f172a;
+}
+
+.pageHeader p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* ===== ADMIN ===== */
+.adminControls {
+  padding: 0 40px 20px;
+  text-align: right;
+}
+
+.createBtn {
+  padding: 10px 18px;
+  background-color: #0b5ed7;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* ===== GRID ===== */
+.challengeGrid {
+  padding: 0 40px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* ===== CARD ===== */
+.challengeCard {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.challengeCard h3 {
+  color: #0b5ed7;
+  margin-bottom: 5px;
+}
+
+.category {
+  font-size: 13px;
+  color: #20c997;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 14px;
+  margin: 10px 0;
+  color: #555;
+}
+
+/* ===== DETAILS ===== */
+.details {
+  list-style: none;
+  padding: 0;
+  font-size: 13px;
+  margin: 15px 0;
+}
+
+.details li {
+  margin-bottom: 5px;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.joinBtn {
+  flex: 1;
+  padding: 10px;
+  background-color: #20c997;
+  border: none;
+  border-radius: 8px;
+  color: #0f172a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.uploadBtn {
+  flex: 1;
+  padding: 10px;
+  background-color: #0b5ed7;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #0f172a;
+  color: #cbd5e1;
+  font-size: 13px;
+}

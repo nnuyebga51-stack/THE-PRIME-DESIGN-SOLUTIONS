@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard | THE PRIME DESIGN SOLUTIONS</title>
+  <link rel="stylesheet" href="Dashboard.module.css">
+</head>
+
+<body class="dashboardBody">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">TPDS</h2>
+
+    <nav class="navMenu">
+      <a href="../home/Home.html">Home</a>
+      <a href="../library/Library.html">CAD Library</a>
+      <a href="../challenges/Challenges.html">Challenges</a>
+      <a href="../groups/Groups.html">Groups</a>
+      <a href="../tutorials/Tutorials.html">Tutorials</a>
+      <a href="../questions/Questions.html">Questions</a>
+      <a href="../auth/Login.html" class="logout">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dashboardMain">
+
+    <header class="dashboardHeader">
+      <h1>Welcome Back</h1>
+      <p>Your CAD learning & design workspace</p>
+    </header>
+
+    <section class="statsGrid">
+      <div class="statCard">
+        <h3>Your Designs</h3>
+        <p>7</p>
+      </div>
+
+      <div class="statCard">
+        <h3>Challenges Joined</h3>
+        <p>2</p>
+      </div>
+
+      <div class="statCard">
+        <h3>Groups</h3>
+        <p>3</p>
+      </div>
+
+      <div class="statCard">
+        <h3>Subscription</h3>
+        <p>Active</p>
+      </div>
+    </section>
+
+    <section class="userActions">
+      <h2>User Actions</h2>
+
+      <div class="actionGrid">
+        <button>Upload CAD File</button>
+        <button>Browse CAD Library</button>
+        <button>Join Challenge</button>
+        <button>Ask a Question</button>
+        <button>View Tutorials</button>
+      </div>
+    </section>
+
+  </main>
+<script src="../../scripts/session.js"></script>
+<script src="../../scripts/roles.js"></script>
+<script>
+  userOnly();
+  <a href="#" onclick="clearSession(); location.href='../auth/Login.html';">
+  Logout
+</a>
+
+</script>
+<script src="../../scripts/session.js"></script>
+<script src="../../scripts/roles.js"></script>
+<script>
+  userOnly();
+</script>
+
+</body>
+</html>

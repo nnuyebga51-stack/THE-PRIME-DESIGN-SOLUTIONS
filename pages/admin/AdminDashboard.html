@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard | TPDS</title>
+  <link rel="stylesheet" href="../../styles/global.css" />
+</head>
+
+<body>
+
+<header class="navbar">
+  <h1 class="logo">Admin Dashboard</h1>
+  <nav class="navLinks">
+    <a href="../home/Home.html">Home</a>
+    <a href="../library/Library.html">Library</a>
+    <a href="../challenges/Challenges.html">Challenges</a>
+  </nav>
+</header>
+
+<section class="features">
+  <h3>Website Activity Logs</h3>
+
+  <table class="adminTable">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Role</th>
+        <th>Action</th>
+        <th>Page</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody id="logTable"></tbody>
+  </table>
+</section>
+
+<footer class="footer">
+  <p>© 2025 THE PRIME DESIGN SOLUTIONS</p>
+</footer>
+
+<script src="../../scripts/session.js"></script>
+<script src="../../scripts/adminDashboard.js"></script>
+</body>
+</html>
